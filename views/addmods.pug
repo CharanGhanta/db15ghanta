@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  p rows:#{query.rows} , columns:#{query.cols}
+  - var rows=Number(query.rows)
+  - var cols=Number(query.cols)
+  p Please pass parameters in URL
+  if (row==NaN|| cols==NaN)
+   if !(Number.isInteger(rows)) ||  !(Number.isInteger(cols))
+    p Given parameter values are not integers 
+  else if rows > 6
+   p The entered row values should be less than 6
+  else if cols > 6
+   p The entered column values should be less than 6
+  else
+   table#outer
+    - for(let i=0; i<rows; i++) {
+     tr#middle
+      - for(let j=0; j<cols; j++) {
+       td=((i+j)%rows)
+      -}
+    -}

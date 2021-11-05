@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  - var image_names= ["Iphone1.jpg","Iphone2.png","Iphone3.jpg","Iphone4.jpg","Iphone5.jpg"]
+  - for(let i=0;i<3;i++){
+     - let randValue= Math.floor(Math.random()*5)
+     img(src=`/images/${image_names[randValue]}` alt=`Image No ${randValue}`)
+
+  - }
