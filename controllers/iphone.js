@@ -1,8 +1,18 @@
 var iphone = require('../models/iphone');
+
 // List of all iphones
-exports.iphone_list = function(req, res) {
- res.send('NOT IMPLEMENTED: iphone list');
+
+exports.iphone_list = async function (req, res) {
+    try {
+        theiphone = await iphone.find();
+        res.send(theiphone);
+    }
+    catch (err) {
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
 };
+
 // for a specific iphone.
 exports.iphone_detail = function(req, res) {
  res.send('NOT IMPLEMENTED: iphone detail: ' + req.params.id);
