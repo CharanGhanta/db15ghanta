@@ -2,16 +2,17 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}. Learning pug .
-  - var results = [{color:"Black", cost: 700, model:"11"},{color:"Blue", cost: 800, model:"12"},{color:"Red", cost: 900, model:"13"}]
-   div(class="container-fluid")
-    div(class="row" )
-     each res,index in results
-      div(class="col-sm-4" onclick=`buy(${index})`) color : #{res.color} , cost : #{res.cost} , model : #{res.model}
-  script.
-   let itemNumber=0                
-        function buy(itemNumber)
-        {
-            //for index in results
-             alert(`you purchased Item ${itemNumber+1}`)
-        }
+  p Welcome to the iphone pug
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let iphone = results
+            each v,index in iphone
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.color}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.cost}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.model}
+  script.                
+    function buy(itemNo)
+    {
+        alert(`you purchased Item ${itemNo+1}`)
+    }

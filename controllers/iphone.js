@@ -13,6 +13,19 @@ exports.iphone_list = async function (req, res) {
     }
 };
 
+// VIEWS
+// Handle a show all view
+exports.iphone_view_all_Page = async function (req, res) {
+    try {
+        theiphone = await iphone.find();
+        res.render('iphone', { title: 'iphone Search Results', results: theiphone });
+    }
+    catch (err) {
+        res.send(`{"error": ${err}}`)
+        res.status(500);
+    }
+};
+
 // for a specific iphone.
 exports.iphone_detail = function(req, res) {
  res.send('NOT IMPLEMENTED: iphone detail: ' + req.params.id);
