@@ -21,7 +21,7 @@ var resourceRouter = require('./routes/resource');
 // We can seed the collection if needed on server start
 async function recreateDB(){
   // Delete everything await modelume.deleteMany();
-  let instance1 = new iphone({color:"Balck", cost:700, model:"11"});
+  let instance1 = new iphone({color:"Black", cost:700, model:"11"});
   instance1.save( function(err,doc) {
   if(err) return console.error(err);
   console.log("First object saved")
