@@ -1,0 +1,26 @@
+extends layout
+block content
+ h1= title
+if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let iphoneid = toShow._id 
+    - let iphone_color  = toShow.color 
+    - let iphonecost = toShow.cost 
+    - let iphonemodel = toShow.model   
+    - let actionid = "/resource/iphone/" + iphoneid 
+    script let actionid = "#{actionid}"
+
+ div
+ div.row
+ div(class='iphoneAttr mr-3') iphone id is:
+ div #{iphoneid}
+ div.row
+ div(class='iphoneAttr mr-3') iphone color is:
+ div #{iphonecolor}
+ div.row
+ div(class='iphoneAttr mr-3') iphone cost is:
+ div #{iphonecost}
+ div.row
+ div(class='iphoneAttr mr-3') iphone model is:
+ div #{iphonemodel}

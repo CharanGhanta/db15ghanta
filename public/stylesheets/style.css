@@ -6,3 +6,30 @@ body {
 a {
   color: #00B7FF;
 }
+
+.iphoneAttr {
+  background-color: aquamarine;
+  width: 120px;
+  font: 300;
+  height: 50px;
+  font-size: 20px;
+ }
+ h1{
+  margin-left: -10px;
+  text-shadow: 2px 2px #0077ff;
+  font: bold;
+  width: 120px;
+  color: brown;
+}
+.iphone{
+  width: 120px; 
+  font: 300;
+  height: 50px;
+  font-size: 20px;
+  background-color:gainsboro;
+
+}
+div{
+  align-items: center;
+}
+ 
