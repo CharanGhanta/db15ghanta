@@ -59,10 +59,17 @@ exports.iphone_create_post = async function (req, res) {
 };
 
 // Handle iphone delete form on DELETE.
-exports.iphone_delete = function (req, res) {
-    res.send('NOT IMPLEMENTED: iphone delete DELETE ' + req.params.id);
+exports.iphone_delete = async function (req, res) {
+    console.log("delete " + req.params.id)
+    try {
+        result = await iphone.findByIdAndDelete(req.params.id)
+        console.log("Removed " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": Error deleting ${err}}`);
+    }
 };
-
 // Handle iphone update form on PUT. 
 exports.iphone_update_put = async function (req, res) {
     console.log(`update on id ${req.params.id} with body 
