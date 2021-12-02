@@ -2,30 +2,31 @@ extends layout
  
 block content 
   h1= title 
- if (toShow == null) 
+ 
+  if (toShow == null) 
     h2 No instance to delete 
   else 
     - let iphoneid = toShow._id 
-    - let iphone_color  = toShow.color 
-    - let iphonecost = toShow.cost 
-    - let iphonemodel = toShow.model   
+    - let iphonecolor = toShow.color 
+    - let iphonecost = toShow.cost
+    - let iphonemodel = toShow.model 
     - let actionid = "/resource/iphone/" + iphoneid 
-    script let actionid = "#{actionid}"
-     
+    script let actionid = "#{actionid}" 
+   
   div.row(class='mb-2') 
     div.mr-1 ID is 
     div #{iphoneid} 
-  - let actionid = "/resource/iphones/" + iphoneid 
+  - let actionid = "/resource/iphone/" + iphoneid 
   form(id='iphoneForm', action= actionid, method="PUT") 
     div.form-group 
-        label.iphoneAttr(for='iphone_color') iphone color 
-        input#iphone_type(type='text', name='iphone_color', value= iphone_color ) 
+        label.iphoneAttr(for='iphonecolor') iphone color 
+        input#iphonecolor(type='text', name='iphonecolor', value= iphonecolor ) 
     div.form-group 
-        label.iphoneAttr(for='cost') iphone cost 
-        input#size(type='number', name='cost', value= iphonecost ) 
+        label.iphoneAttr(for='iphonecost') iphone cost 
+        input#iphonecost(type='text', name='iphonecost', value= iphonecost ) 
     div.form-group 
-        label.iphoneAttr(for='model') iphone model 
-        input#cost(type='text', name='model', value= iphonemodel ) 
+        label.iphoneAttr(for='iphonemodel') iphone model
+        input#iphonemodel(type='number', name='iphonemodel', value= iphonemodel ) 
     input(type="submit") 
  
   script. 
@@ -44,4 +45,4 @@ block content
         // TODO handle error 
         alert("Update failed " + error ) 
       }); 
-    }); 
+    });

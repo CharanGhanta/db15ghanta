@@ -43,6 +43,15 @@ router.post('/register', function (req, res) {
         console.log('Sucess, redirect');
         res.redirect('/');
       })
+      // A little function to check if we have an authorized user and continue on or 
+      // redirect to login. 
+      const secured = (req, res, next) => {
+        if (req.user) {
+          return next();
+        }
+        req.session.returnTo = req.originalUrl;
+        res.redirect("/login");
+      }
     })
 })
 
@@ -51,6 +60,8 @@ router.get('/login', function (req, res) {
 });
 
 router.post('/login', passport.authenticate('local'), function (req, res) {
+  if (req.session.returnTo)
+    res.redirect(req.session.returnTo);
   res.redirect('/');
 });
 
